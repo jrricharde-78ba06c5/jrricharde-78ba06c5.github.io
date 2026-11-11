@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>老虎菜原创私房系列全套合集 - 作品与动态聚合</title>
+  <meta name="description" content="老虎菜原创私房系列全套合集汇聚该系列已公开的原创菜品、制作手记与更新动态。包含私房凉拌、秘制酱料、腌制小菜及创作者投稿互动内容，适合关注家常菜创意与东北风味创新的厨友浏览。">
+  <meta name="keywords" content="老虎菜原创私房系列全套合集">
+  <style>
+    :root {
+      --primary: #c44b2b;
+      --primary-light: #e07a5f;
+      --primary-dark: #9e3b22;
+      --bg: #fdf9f6;
+      --panel: #ffffff;
+      --text-primary: #2e2e2e;
+      --text-secondary: #5e5e5e;
+      --text-tertiary: #8a8a8a;
+      --border: #e8ddd6;
+      --radius-card: 16px;
+      --radius-btn: 30px;
+      --radius-tag: 40px;
+      --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --font-heading: 'Georgia', 'Times New Roman', serif;
+      --announce-height: 40px;
+      --header-height: 64px;
+      --offset: calc(var(--announce-height) + var(--header-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--offset);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== 吸顶公告条 ===== */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary-dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: var(--announce-height);
+      padding: 0 1.5rem;
+      font-size: 0.9rem;
+      gap: 1.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .announce-brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .announce-items {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .announce-items span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .announce-date {
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+
+    /* ===== 吸顶页头 ===== */
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      background: rgba(253, 249, 246, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-mini {
+      display: flex;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.3rem 0.8rem;
+      gap: 0.4rem;
+    }
+
+    .search-mini input {
+      border: none;
+      background: transparent;
+      font-size: 0.9rem;
+      width: 120px;
+      outline: none;
+      color: var(--text-primary);
+    }
+
+    .search-mini input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .search-mini button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+    }
+
+    /* ===== 布局容器 ===== */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== 首屏 ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3rem 0 2.5rem;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: #fff;
+      padding: 0.2rem 1rem;
+      border-radius: var(--radius-tag);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      line-height: 1.2;
+      color: var(--primary-dark);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.7rem 2rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-default);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 0.7rem 2rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(145deg, #f5e3d8 0%, #f0d4c5 100%);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.5) 0%, transparent 60%);
+    }
+
+    .hero-svg {
+      width: 70%;
+      height: 70%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-svg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== 三栏主内容区 ===== */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 190px 1fr 260px;
+      gap: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    /* 左频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--offset) + 1rem);
+      align-self: start;
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 0.8rem;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+    }
+
+    .channel-sidebar h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.8rem;
+      padding-left: 0.5rem;
+    }
+
+    .channel-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .channel-list a {
+      display: block;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+      font-weight: 500;
+    }
+
+    .channel-list a:hover {
+      background: var(--primary-light);
+      color: #fff;
+    }
+
+    .channel-list a.active {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* 中间主内容 */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      min-width: 0;
+    }
+
+    .section {
+      padding: 0.5rem 0;
+    }
+
+    .section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .section-intro {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    /* 领域概览 */
+    .overview-text {
+      background: var(--panel);
+      padding: 1.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    .overview-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .card-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(196, 75, 43, 0.1);
+      padding: 0.15rem 0.6rem;
+      border-radius: var(--radius-tag);
+      width: fit-content;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-top: 0.3rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background: var(--bg);
+      color: var(--text-secondary);
+      padding: 0.1rem 0.5rem;
+      border-radius: var(--radius-tag);
+      border: 1px solid var(--border);
+    }
+
+    /* 最新更新列表 */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+    }
+
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .update-date {
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      width: 75px;
+    }
+
+    .update-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+    }
+
+    .update-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .category-item {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+      transition: background 0.2s, transform 0.2s;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .category-item:hover {
+      background: var(--primary-light);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .category-item .cat-icon {
+      font-size: 1.5rem;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    .deep-dive h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin: 1.8rem 0 0.8rem;
+      font-weight: 700;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+    }
+
+    .deep-dive ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      list-style: disc;
+      color: var(--text-secondary);
+    }
+
+    .deep-dive li {
+      margin-bottom: 0.4rem;
+    }
+
+    .deep-dive blockquote {
+      background: var(--bg);
+      border-left: 4px solid var(--primary);
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: normal;
+      color: var(--text-secondary);
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 1rem;
+      background: var(--panel);
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .step-content h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-primary);
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    details {
+      background: var(--panel);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-primary);
+      transition: background 0.15s;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: 400;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    summary:hover {
+      background: var(--bg);
+    }
+
+    details p {
+      padding: 0 1.5rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* 评论 */
+    .comments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .comment-card {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+    }
+
+    .comment-nick {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .comment-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--panel);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      width: 80px;
+    }
+
+    .news-content h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: var(--text-primary);
+    }
+
+    .news-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* 相关推荐标签 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .related-tag {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-tag);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .related-tag:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: calc(var(--offset) + 1rem);
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+    }
+
+    .sidebar-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .hot-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .hot-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .hot-rank {
+      font-weight: 700;
+      color: var(--primary-light);
+      font-size: 1rem;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .hot-name {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hot-meta {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .sidebar-note {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    /* 互动栏目 */
+    .interact-bar {
+      display: flex;
+      gap: 1rem;
+      background: var(--panel);
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .interact-bar span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .interact-bar .btn-small {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.4rem 1.2rem;
+      border-radius: var(--radius-btn);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: #2e2e2e;
+      color: #ccc;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .footer-position {
+      line-height: 1.6;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .footer-group h4 {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .footer-group a {
+      display: block;
+      color: #aaa;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-group a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #444;
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 200;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+    }
+
+    /* 遮罩 */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 150;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 170px 1fr;
+      }
+      .right-sidebar {
+        display: none;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .hero-visual {
+        height: 200px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .announce-bar {
+        font-size: 0.75rem;
+        gap: 0.8rem;
+        padding: 0 1rem;
+      }
+      .announce-items {
+        gap: 0.8rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .search-mini {
+        display: none;
+      }
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .comments-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .update-item {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .update-date {
+        width: auto;
+      }
+      .news-item {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .news-date {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 轻量动画 */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    .hero-visual svg {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* 移动端菜单 */
+    .mobile-menu {
+      position: fixed;
+      top: var(--offset);
+      left: 0;
+      width: 260px;
+      height: calc(100vh - var(--offset));
+      background: var(--panel);
+      z-index: 160;
+      padding: 1.5rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      overflow-y: auto;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--primary-light);
+      color: #fff;
+    }
+
+    .mobile-menu .close-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar">
+  <span class="announce-brand">老虎菜原创私房系列全套合集</span>
+  <div class="announce-items">
+    <span><span class="announce-date">11月7日</span> 更新「酸辣虎皮凤爪」秘制腌渍篇</span>
+    <span><span class="announce-date">11月6日</span> 新增「老式东北酱八宝」投稿作品4件</span>
+    <span><span class="announce-date">11月5日</span> 私房酱料系列累计浏览破8.2万</span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8 2 5 5 5 9c0 2.5 1.5 4.5 3.5 5.5C9 15.5 9 17 9 18c0 1.5 1 3 3 3s3-1.5 3-3c0-1 0-2.5.5-3.5C17.5 13.5 19 11.5 19 9c0-4-3-7-7-7zm0 2c2.8 0 5 2.2 5 5 0 1.8-1 3.3-2.5 4.2-.8.5-1.5 1.8-1.5 3.3 0 .8-.5 1.5-1 1.5s-1-.7-1-1.5c0-1.5-.7-2.8-1.5-3.3C8 12.3 7 10.8 7 9c0-2.8 2.2-5 5-5z"/>
+        </svg>
+      </div>
+      <span class="logo-text">老虎菜原创私房系列全套合集</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#overview">私房概览</a>
+      <a href="#featured">精选作品</a>
+      <a href="#updates">最新动态</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deep-dive">深度解析</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-mini">
+        <input type="text" id="searchInput" placeholder="搜索作品或食材…" aria-label="搜索内容">
+        <button id="searchBtn" aria-label="搜索">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端菜单 -->
+<div class="overlay" id="overlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu">关闭菜单</button>
+  <ul>
+    <li><a href="#overview">私房概览</a></li>
+    <li><a href="#featured">精选作品</a></li>
+    <li><a href="#updates">最新动态</a></li>
+    <li><a href="#categories">分类入口</a></li>
+    <li><a href="#deep-dive">深度解析</a></li>
+    <li><a href="#guide">体验指南</a></li>
+    <li><a href="#faq">常见问题</a></li>
+    <li><a href="#comments">用户评论</a></li>
+    <li><a href="#news">相关资讯</a></li>
+    <li><a href="#related">相关推荐</a></li>
+  </ul>
+</div>
+
+<!-- 首屏 -->
+<section class="container">
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">私房风味 · 持续更新</span>
+      <h1>老虎菜原创私房系列全套合集</h1>
+      <p class="hero-description">
+        汇集老虎菜私房系列的原创凉拌、秘制酱料、腌制小菜与创意东北菜作品。从「虎皮凤爪」到「老式酱八宝」，每道菜配有完整配方、步骤拆解与创作者手记，适合喜欢在家复刻私房味道的厨友参考。
+      </p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-primary">浏览精选作品</a>
+        <a href="#deep-dive" class="btn-outline">阅读深度解析</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-svg">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#fff" stroke-width="1" opacity="0.4"/>
+          <path d="M70 90 Q85 70 100 90 Q115 70 130 90 Q115 110 100 130 Q85 110 70 90Z" fill="#fff" opacity="0.9"/>
+          <circle cx="100" cy="100" r="8" fill="#c44b2b"/>
+          <path d="M70 60 L80 40 L90 60" stroke="#fff" stroke-width="2" fill="none" opacity="0.7"/>
+          <path d="M130 60 L120 40 L110 60" stroke="#fff" stroke-width="2" fill="none" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏主内容区 -->
+<div class="container">
+  <div class="main-layout">
+    <!-- 左频道索引 -->
+    <aside class="channel-sidebar">
+      <h3>频道索引</h3>
+      <nav class="channel-list">
+        <a href="#overview" class="active">私房概览</a>
+        <a href="#featured">精选作品</a>
+        <a href="#updates">最新动态</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+        <a href="#related">相关推荐</a>
+        <a href="#interact">互动投稿</a>
+      </nav>
+    </aside>
+
+    <!-- 中间主内容 -->
+    <main class="main-content">
+      <!-- 1. 领域概览 -->
+      <section id="overview" class="section">
+        <h2>私房风味领域概览</h2>
+        <div class="overview-text">
+          <p>老虎菜原创私房系列以东北家常凉拌菜为基底，延伸出秘制酱料、腌渍小菜、虎皮系列和创意融合菜四条主线。私房凉拌讲究现拌现吃，红油与蒜末的比例直接决定入口的层次；秘制酱料则依赖发酵时间和香料配比，比如「老式东北大酱」需要至少45天日晒夜露；腌制小菜分快腌（24小时内）和慢腌（7天以上），风味走向完全不同。</p>
+          <p>当前值得关注的具体内容包括：11月新上的「酸辣虎皮凤爪」采用先炸后泡工艺，虎皮起皱率达90%以上；「私房麻酱拉皮」的麻酱配方经过三次调整，芝麻酱与花生酱比例锁定在3:1；「老式酱八宝」投稿作品累计收到47份，其中6份被收录进精选。虎皮系列和酱料系列的配方迭代记录在创作者手记中均有时间戳标注。</p>
+          <p>这个领域适合对凉拌菜和腌制工艺有具体兴趣的厨友。判断一道私房菜是否值得尝试，看三个硬指标：配方是否标注精确克数、步骤是否包含温度或时间参数、创作者是否记录了失败版本。三者齐备的条目在精选作品里占比约六成。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section id="featured" class="section">
+        <h2>精选私房作品推荐</h2>
+        <p class="section-intro">从近期更新的作品中挑出配方完整、步骤可复刻的条目，按热度与更新时间排序。</p>
+        <div class="card-grid">
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/hupi1/400/300" width="400" height="300" loading="lazy" alt="酸辣虎皮凤爪成品展示">
+            <div class="card-body">
+              <span class="card-type">虎皮系列</span>
+              <h3 class="card-title">酸辣虎皮凤爪</h3>
+              <p class="card-desc">先炸后泡，虎皮起皱率90%。泡汁用海南黄灯笼椒酱配白醋，酸辣底味突出，冷藏浸泡6小时入味。</p>
+              <div class="tag-list"><span class="tag">凤爪</span><span class="tag">酸辣</span><span class="tag">先炸后泡</span></div>
+              <div class="card-meta"><span>11月7日更新</span><span>热度 2.4k</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/majiang1/400/300" width="400" height="300" loading="lazy" alt="私房麻酱拉皮拌制特写">
+            <div class="card-body">
+              <span class="card-type">私房凉拌</span>
+              <h3 class="card-title">私房麻酱拉皮</h3>
+              <p class="card-desc">芝麻酱与花生酱按3:1调和，加蒜水稀释至酸奶状。拉皮过冰水后更弹，配黄瓜丝和蛋皮丝。</p>
+              <div class="tag-list"><span class="tag">拉皮</span><span class="tag">麻酱</span><span class="tag">凉拌</span></div>
+              <div class="card-meta"><span>11月5日更新</span><span>热度 3.1k</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/jiang8b1/400/300" width="400" height="300" loading="lazy" alt="老式酱八宝腌菜坛">
+            <div class="card-body">
+              <span class="card-type">腌制小菜</span>
+              <h3 class="card-title">老式东北酱八宝</h3>
+              <p class="card-desc">八种蔬菜切丁，用老式酱油和白糖腌制48小时。投稿作品中有6份调整了黄瓜和花生比例，风味差异明显。</p>
+              <div class="tag-list"><span class="tag">酱菜</span><span class="tag">八宝菜</span><span class="tag">腌渍</span></div>
+              <div class="card-meta"><span>11月6日更新</span><span>热度 1.8k</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/lajiang1/400/300" width="400" height="300" loading="lazy" alt="私房辣椒酱装罐展示">
+            <div class="card-body">
+              <span class="card-type">秘制酱料</span>
+              <h3 class="card-title">蒜香辣椒酱</h3>
+              <p class="card-desc">二荆条与小米辣按2:1配比，蒜末分两次下锅。第一次炸香，第二次关火后用余温激出蒜香。</p>
+              <div class="tag-list"><span class="tag">辣椒酱</span><span class="tag">蒜香</span><span class="tag">蘸料</span></div>
+              <div class="card-meta"><span>11月3日更新</span><span>热度 2.7k</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/qiezi1/400/300" width="400" height="300" loading="lazy" alt="蒜泥茄条拌制过程">
+            <div class="card-body">
+              <span class="card-type">私房凉拌</span>
+              <h3 class="card-title">蒜泥茄条</h3>
+              <p class="card-desc">长茄子蒸8分钟撕条，蒜泥用热油泼出香味。关键在蒸后挤水，挤得越干越能吸味。</p>
+              <div class="tag-list"><span class="tag">茄子</span><span class="tag">蒜泥</span><span class="tag">蒸菜</span></div>
+              <div class="card-meta"><span>11月1日更新</span><span>热度 1.5k</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://picsum.photos/seed/huanggu1/400/300" width="400" height="300" loading="lazy" alt="腌黄瓜条装盘">
+            <div class="card-body">
+              <span class="card-type">腌制小菜</span>
+              <h3 class="card-title">脆皮腌黄瓜</h3>
+              <p class="card-desc">黄瓜切条盐杀水2小时，压重物挤出水分。腌汁用生抽、香醋、冰糖和八角煮开放凉，冷藏一夜。</p>
+              <div class="tag-list"><span class="tag">黄瓜</span><span class="tag">脆腌</span><span class="tag">快手菜</span></div>
+              <div class="card-meta"><span>10月30日更新</span><span>热度 2.0k</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 动态 -->
+      <section id="updates" class="section">
+        <h2>最新更新与动态</h2>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-date">11月7日</span>
+            <div>
+              <div class="update-title">「酸辣虎皮凤爪」腌渍篇上线</div>
+              <div class="update-desc">新增泡汁配比表，标注黄灯笼椒酱与白醋的精确克数，以及冷藏入味时间曲线。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月6日</span>
+            <div>
+              <div class="update-title">「老式酱八宝」投稿作品突破47份</div>
+              <div class="update-desc">其中6份被收录进精选，创作者@东北小厨娘 提交的减盐版获得本周最多收藏。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月5日</span>
+            <div>
+              <div class="update-title">「私房麻酱拉皮」配方第三次调整</div>
+              <div class="update-desc">芝麻酱与花生酱比例从2:1改为3:1，蒜水用量减少15%，口感测试记录同步公开。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月4日</span>
+            <div>
+              <div class="update-title">「蒜香辣椒酱」新增失败版本对照</div>
+              <div class="update-desc">记录蒜末一次下锅导致焦苦的案例，附温度曲线和补救方案（加少量白糖和熟芝麻）。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月3日</span>
+            <div>
+              <div class="update-title">秘制酱料系列累计浏览破8.2万</div>
+              <div class="update-desc">「老式东北大酱」单篇浏览2.3万，评论区讨论集中在发酵温度和翻缸频次。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月2日</span>
+            <div>
+              <div class="update-title">虎皮系列新增「虎皮青椒」条目</div>
+              <div class="update-desc">青椒干煸至表皮起泡，泡汁用生抽、陈醋和少许蜂蜜，冷藏2小时即可食用。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10月31日</span>
+            <div>
+              <div class="update-title">「脆皮腌黄瓜」入选本周编辑推荐</div>
+              <div class="update-desc">作者补充了压重物的具体重量（3公斤）和挤水前后的重量对比数据。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10月29日</span>
+            <div>
+              <div class="update-title">私房凉拌系列新增「凉拌木耳」</div>
+              <div class="update-desc">木耳焯水时间精确到45秒，过冰水后配洋葱丝和香菜，料汁用鱼露替代部分生抽。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section id="categories" class="section">
+        <h2>按类别查找私房菜</h2>
+        <div class="category-grid">
+          <a href="#featured" class="category-item"><span class="cat-icon">🥗</span>私房凉拌</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🫙</span>秘制酱料</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🥒</span>腌制小菜</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🐔</span>虎皮系列</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🥘</span>东北炖菜</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🌶️</span>辣椒制品</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🧄</span>蒜香风味</a>
+          <a href="#featured" class="category-item"><span class="cat-icon">🍜</span>拉皮粉皮</a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section id="deep-dive" class="section">
+        <h2>虎皮系列与酱料系列的风味拆解</h2>
+        <div class="deep-dive">
+          <h3>虎皮起皱的三个环节</h3>
+          <p>虎皮凤爪的起皱程度取决于三个环节的配合：油炸温度、浸泡温差和泡汁酸度。油炸阶段油温必须稳定在180—190℃，低于170℃表皮水分蒸发不充分，起皱率下降约40%；高于200℃则容易局部焦黑。11月7日更新的「酸辣虎皮凤爪」配方中，创作者记录了三次油温测试：第一次160℃下锅，起皱率仅55%；第二次185℃下锅，起皱率91%；第三次190℃下锅，起皱率93%但有三只凤爪出现焦边。最终锁定185℃。</p>
+          <p>浸泡温差是第二个关键。炸好的凤爪立即投入冰水，表皮骤缩形成褶皱。配方里写的是冰水温度≤4℃，浸泡时长20分钟。有投稿作品改用常温自来水浸泡，起皱率降到67%，且褶皱分布不均匀。</p>
+          <p>泡汁酸度影响最终口感。白醋与水的比例在1:4时酸味明亮但不刺鼻；1:3时酸味过冲，盖住辣椒的香气。创作者在10月30日的更新中把比例从1:3调整到1:4，评论区有读者反馈「酸味更柔和，连吃三只不呛喉」。</p>
+
+          <h3>酱料发酵的时间变量</h3>
+          <p>「老式东北大酱」的配方标注发酵周期45天，但实际操作中温度波动会显著改变风味。9月15日投料的第一缸在日均温22℃下发酵，第30天取样时豆腥味未完全转化；第45天开缸，酱香突出但咸度偏高（盐度12%）。10月2日投料的第二缸把盐度降到10%，发酵至第38天时出现明显酸味，第45天酸味减弱、鲜味提升。</p>
+          <p>两缸的对比数据记在创作者手记里：第一缸氨基酸态氮含量0.62g/100g，第二缸0.71g/100g。数值差异来自盐度降低后蛋白酶活性更高，但风险是杂菌繁殖概率增加。手记里明确写了「第二缸第12天表面出现少量白膜，撇去后补了2%的盐」。这类失败记录在精选作品里只占三成，但恰恰是判断配方可靠性的重要依据。</p>
+
+          <h3>凉拌菜的红油用法差异</h3>
+          <p>私房凉拌系列的红油分两种用法：泼油和拌油。泼油是辣椒面、蒜末、芝麻铺在食材上，热油直接浇淋，油温控制在150℃左右，过高会苦、过低不出香。拌油是红油提前炼好，放凉后拌入食材，适合含水量高的蔬菜（黄瓜、木耳）。</p>
+          <p>「私房麻酱拉皮」用的是拌油法，红油在麻酱稀释后加入，避免高温破坏麻酱的坚果香气。「蒜泥茄条」用泼油法，茄子蒸后挤水，表面铺蒜末和辣椒面，180℃菜籽油一泼，蒜香和辣香同时激发。两种用法的差异在评论区被反复讨论：有读者把茄条的泼油法套用到拉皮上，结果红油浮在麻酱表面无法融合，口感油腻。创作者在11月5日更新中专门加了一条提示：「麻酱类凉菜用拌油，蒸菜类用泼油」。</p>
+
+          <h3>腌制小菜的盐度阈值</h3>
+          <p>快腌小菜（24小时内）的盐度建议控制在3%—5%，低于3%杂菌风险高，高于5%口感过咸且蔬菜脱水过度。慢腌小菜（7天以上）盐度可以降到2.5%—3.5%，依靠乳酸菌主导发酵。10月28日投稿的「减盐版酱八宝」把盐度从6%降到4%，腌制48小时后实测亚硝酸盐含量0.8mg/kg，低于国标限值。作者在投稿说明里附了试纸检测照片。</p>
+          <p>「脆皮腌黄瓜」的盐度4.2%，腌制12小时后挤水，再泡入调好的腌汁（生抽、香醋、冰糖、八角）。腌汁的盐度另算，约8%，但黄瓜本身已经吸过盐，综合入口咸度适中。这个两步盐渍法在评论区被追问了17次，创作者在11月1日更新了挤水前后的重量对比：500克黄瓜杀水后剩312克，挤水后再降到268克。</p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section id="guide" class="section">
+        <h2>私房菜的体验与判断路径</h2>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>先看配方完整度</h4>
+              <p>一份可复刻的私房菜配方至少包含：所有食材的精确克数、关键步骤的温度或时间参数、容器尺寸或火候描述。只写「适量」「少许」的条目直接跳过。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>判断创作者是否记录失败版本</h4>
+              <p>带失败记录的配方可信度更高。例如「蒜香辣椒酱」记录了蒜末一次下锅导致焦苦的案例，并给出补救方案，说明作者实际做过至少两次以上。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>同类条目横向比较</h4>
+              <p>「老式酱八宝」有47份投稿，对比其中6份精选可以发现：黄瓜和花生的比例在1:1到1:2之间波动，盐度从4%到6%不等。选择与自己口味接近的版本试做。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>投入时间与预期风味匹配</h4>
+              <p>快腌小菜（24小时内）适合当天想吃；慢腌酱料（45天以上）适合愿意等待发酵变化的人。虎皮凤爪从炸到泡至少需要6小时，急着吃可以缩短到3小时但起皱率会下降。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq" class="section">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          <details>
+            <summary>虎皮凤爪的虎皮起皱率怎么提高？</summary>
+            <p>起皱率主要看油炸温度。185℃下锅炸4—5分钟，表皮起泡后立即投入≤4℃冰水浸泡20分钟，起皱率能到90%以上。油温低于170℃起皱率会掉到55%左右。</p>
+          </details>
+          <details>
+            <summary>老式东北大酱发酵多少天可以吃？</summary>
+            <p>配方标准是45天。但盐度会影响时间：盐度12%时45天风味稳定；盐度降到10%时第38天可能出现酸味，需要继续发酵到第45天酸味才会减弱。发酵期间每天翻缸一次。</p>
+          </details>
+          <details>
+            <summary>私房麻酱拉皮的麻酱怎么调不澥？</summary>
+            <p>芝麻酱和花生酱按3:1混合，分三次加入蒜水，每次顺时针搅打至完全吸收再加下一次。总水量约为酱料重量的40%。加少许盐和糖能稳定乳化，澥开的麻酱可以冷藏保存两天。</p>
+          </details>
+          <details>
+            <summary>腌黄瓜怎么保持脆度？</summary>
+            <p>两步盐渍法：先切条用4%盐杀水2小时，压3公斤重物挤出水分（500克黄瓜挤到268克左右），再泡入放凉的腌汁（生抽、香醋、冰糖、八角煮沸后冷却）。冷藏12小时即可，存放超过3天脆度会下降。</p>
+          </details>
+          <details>
+            <summary>蒜香辣椒酱的蒜末为什么要分两次下？</summary>
+            <p>第一次下锅用油温炸香蒜末，提供底味；第二次在关火后趁余温拌入生蒜末，保留蒜的辛辣和鲜香。全下锅炸会失去生蒜气息，全关火后下则香气不足。</p>
+          </details>
+          <details>
+            <summary>酱八宝的蔬菜可以替换吗？</summary>
+            <p>可以。传统八宝用黄瓜、花生、黄豆、萝卜、辣椒、芹菜、豇豆、姜。投稿作品里有把黄瓜换成莴笋的版本，口感更脆但吸味慢，需要多腌12小时。替换蔬菜后盐度建议增加0.5%以平衡出水率。</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section id="comments" class="section">
+        <h2>用户评论</h2>
+        <div class="comments-grid">
+          <div class="comment-card">
+            <div class="comment-nick">@酸菜炖粉条</div>
+            <p class="comment-text">虎皮凤爪按185℃炸了两次，第二次起皱明显好很多，泡汁里加了半勺黄灯笼酱，辣得刚好。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@锅包又</div>
+            <p class="comment-text">酱八宝减盐版试了，4%盐度确实不齁，但花生泡了两天还是有点硬，下次换小粒花生。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@拉皮不加麻酱</div>
+            <p class="comment-text">麻酱拉皮的3:1配比是真的，之前用纯芝麻酱总觉得苦，掺了花生酱之后顺口多了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@东北小厨娘</div>
+            <p class="comment-text">投稿的减盐酱八宝被收录了，开心。亚硝酸盐试纸测了0.8，评论区还有人问试纸链接，统一回复：淘宝搜亚硝酸盐检测试纸。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@蒜末杀手</div>
+            <p class="comment-text">蒜香辣椒酱第二次下蒜末那步太关键了，之前全炸香了，吃起来只有油味没有蒜味。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@凉拌一切</div>
+            <p class="comment-text">蒜泥茄条挤水挤到手酸，但确实值得，蒸完不挤水拌出来就是一盘汤。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@脆黄瓜本瓜</div>
+            <p class="comment-text">腌黄瓜压了3公斤重物，挤到268克，脆度确实不一样，咬下去有咔嚓声。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@大酱缸</div>
+            <p class="comment-text">老式大酱发酵到第30天的时候豆腥味还很重，差点想倒掉，忍到45天开缸，真香。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@不吃香菜</div>
+            <p class="comment-text">麻酱拉皮里加了香菜，我挑出来才吃的，麻酱味很正，拉皮过冰水那步不能省。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@虎皮青椒侠</div>
+            <p class="comment-text">虎皮青椒泡汁加了蜂蜜，冷藏两小时，甜辣口，配白粥绝了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@凉拌木耳控</div>
+            <p class="comment-text">木耳焯45秒这个细节太重要了，之前煮了两分钟，木耳软塌塌的没有嚼劲。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@酱油瓶</div>
+            <p class="comment-text">腌汁里冰糖换成零卡糖，味道差一截，还是老老实实用冰糖吧。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@厨房翻车王</div>
+            <p class="comment-text">第一次炸凤爪油温没控制好，炸出来是黑的，虎皮没起皱还硬，看了配方才知道要185℃。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@小菜一碟</div>
+            <p class="comment-text">这个合集里的配方克数都标得很细，比那些只写「适量」的菜谱靠谱多了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@发酵爱好者</div>
+            <p class="comment-text">大酱第二缸出现白膜那段记录很有用，我上次也遇到了，撇掉补盐之后继续发酵没出问题。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-nick">@花生米</div>
+            <p class="comment-text">酱八宝里的花生建议提前泡一夜再腌，不然腌三天芯还是硬的。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section id="news" class="section">
+        <h2>相关资讯</h2>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-date">11月7日</span>
+            <div class="news-content">
+              <h4>「酸辣虎皮凤爪」更新腌渍篇，泡汁配比表公开</h4>
+              <p>新增黄灯笼椒酱与白醋的精确克数（比例1:4），并附冷藏入味时间曲线：6小时酸辣均衡，12小时酸味加深。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月6日</span>
+            <div class="news-content">
+              <h4>「老式酱八宝」投稿达47份，减盐版获本周收藏第一</h4>
+              <p>@东北小厨娘 提交的减盐版盐度4%，附亚硝酸盐试纸检测照片（0.8mg/kg），收藏量超过其他投稿3倍。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月5日</span>
+            <div class="news-content">
+              <h4>「私房麻酱拉皮」麻酱比例从2:1调至3:1</h4>
+              <p>创作者在配方更新中标注：蒜水用量减少15%，口感测试记录显示苦味降低、顺滑度提升，评论区17人跟做反馈正面。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月3日</span>
+            <div class="news-content">
+              <h4>秘制酱料系列累计浏览突破8.2万</h4>
+              <p>「老式东北大酱」单篇2.3万浏览，评论区讨论集中在发酵温度（22℃ vs 18℃）和翻缸频次对氨基酸态氮的影响。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月31日</span>
+            <div class="news-content">
+              <h4>「脆皮腌黄瓜」入选本周编辑推荐</h4>
+              <p>作者补充压重物重量（3公斤）和挤水前后重量对比（500g→312g→268g），两步盐渍法被3位读者复刻成功。</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月29日</span>
+            <div class="news-content">
+              <h4>私房凉拌系列新增「凉拌木耳」，焯水时间精确到45秒</h4>
+              <p>配方用鱼露替代部分生抽，过冰水后配洋葱丝和香菜。作者在步骤中标注：焯水超过60秒木耳会失去脆度。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section id="related" class="section">
+        <h2>相关推荐</h2>
+        <div class="related-tags">
+          <a href="#featured" class="related-tag">虎皮凤爪泡汁配比</a>
+          <a href="#featured" class="related-tag">老式大酱翻缸记录</a>
+          <a href="#featured" class="related-tag">麻酱拉皮蒜水比例</a>
+          <a href="#featured" class="related-tag">酱八宝减盐版试纸检测</a>
+          <a href="#featured" class="related-tag">蒜香辣椒酱失败对照</a>
+          <a href="#featured" class="related-tag">脆皮腌黄瓜两步盐渍法</a>
+          <a href="#featured" class="related-tag">凉拌木耳焯水45秒</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：互动投稿 + 热门榜单 -->
+      <section id="interact" class="section">
+        <h2>互动投稿与热门榜单</h2>
+        <div class="interact-bar">
+          <span>📬 投稿通道开放中</span>
+          <a href="#featured" class="btn-small">上传你的私房作品</a>
+          <span style="font-size:0.85rem;color:var(--text-tertiary);">本周已收到 12 份投稿，其中 3 份进入精选候选</span>
+        </div>
+        <div style="margin-top:1.5rem;background:var(--panel);border-radius:var(--radius-card);padding:1.2rem 1.5rem;border:1px solid var(--border);box-shadow:var(--shadow-default);">
+          <h3 style="font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-tertiary);margin-bottom:1rem;">本周热门作品榜</h3>
+          <div class="hot-list">
+            <div class="hot-item">
+              <span class="hot-rank">1</span>
+              <div><div class="hot-name">私房麻酱拉皮</div><div class="hot-meta">3.1k 热度 · 11月5日更新</div></div>
+            </div>
+            <div class="hot-item">
+              <span class="hot-rank">2</span>
+              <div><div class="hot-name">酸辣虎皮凤爪</div><div class="hot-meta">2.4k 热度 · 11月7日更新</div></div>
+            </div>
+            <div class="hot-item">
+              <span class="hot-rank">3</span>
+              <div><div class="hot-name">蒜香辣椒酱</div><div class="hot-meta">2.7k 热度 · 11月3日更新</div></div>
+            </div>
+            <div class="hot-item">
+              <span class="hot-rank">4</span>
+              <div><div class="hot-name">脆皮腌黄瓜</div><div class="hot-meta">2.0k 热度 · 10月30日更新</div></div>
+            </div>
+            <div class="hot-item">
+              <span class="hot-rank">5</span>
+              <div><div class="hot-name">老式东北酱八宝</div><div class="hot-meta">1.8k 热度 · 11月6日更新</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="right-sidebar">
+      <div class="sidebar-card">
+        <h3>热门条目</h3>
+        <div class="hot-list">
+          <div class="hot-item">
+            <span class="hot-rank">1</span>
+            <div><div class="hot-name">私房麻酱拉皮</div><div class="hot-meta">3.1k 热度</div></div>
+          </div>
+          <div class="hot-item">
+            <span class="hot-rank">2</span>
+            <div><div class="hot-name">蒜香辣椒酱</div><div class="hot-meta">2.7k 热度</div></div>
+          </div>
+          <div class="hot-item">
+            <span class="hot-rank">3</span>
+            <div><div class="hot-name">酸辣虎皮凤爪</div><div class="hot-meta">2.4k 热度</div></div>
+          </div>
+          <div class="hot-item">
+            <span class="hot-rank">4</span>
+            <div><div class="hot-name">脆皮腌黄瓜</div><div class="hot-meta">2.0k 热度</div></div>
+          </div>
+          <div class="hot-item">
+            <span class="hot-rank">5</span>
+            <div><div class="hot-name">老式东北酱八宝</div><div class="hot-meta">1.8k 热度</div></div>
+          </div>
+        </div>
+        <div class="sidebar-note">榜单基于站内近7天浏览量、收藏量与评论互动综合计算。</div>
+      </div>
+      <div class="sidebar-card">
+        <h3>更新节奏</h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">虎皮系列每周2—3更，酱料系列每10天左右更新一次配方迭代记录。投稿作品每日审核，精选每周三、周日公布。</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">老虎菜原创私房系列全套合集</div>
+      <p class="footer-position">覆盖2026年9月至11月的配方迭代与投稿作品，条目类型包括凉拌、酱料、腌菜、虎皮系列，每周更新3—5条，含失败版本与检测记录。</p>
+    </div>
+    <div class="footer-group">
+      <h4>内容分类</h4>
+      <a href="#featured">私房凉拌</a>
+      <a href="#featured">秘制酱料</a>
+      <a href="#featured">腌制小菜</a>
+      <a href="#featured">虎皮系列</a>
+    </div>
+    <div class="footer-group">
+      <h4>互动</h4>
+      <a href="#interact">投稿通道</a>
+      <a href="#comments">用户评论</a>
+      <a href="#faq">常见问题</a>
+    </div>
+    <div class="footer-group">
+      <h4>关于</h4>
+      <a href="#overview">领域概览</a>
+      <a href="#deep-dive">深度解析</a>
+      <a href="#news">相关资讯</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 老虎菜原创私房系列全套合集 · 内容为示例聚合，配方数据来自创作者手记与投稿记录。</span>
+    <span>更新时间：2026年11月8日</span>
+  </div>
+</footer>
+
+<!-- 回到顶部按钮 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+  // 移动端菜单
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  const closeMenu = document.getElementById('closeMenu');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    overlay.classList.add('active');
+  }
+
+  function closeMenuFn() {
+    mobileMenu.classList.remove('open');
+    overlay.classList.remove('active');
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeMenuFn);
+  overlay.addEventListener('click', closeMenuFn);
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenuFn);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenuFn();
+  });
+
+  // 回到顶部
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 搜索过滤（简单本地搜索）
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+
+  function filterContent() {
+    const query = searchInput.value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    const updates = document.querySelectorAll('.update-item');
+    const news = document.querySelectorAll('.news-item');
+    const allItems = [...cards, ...updates, ...news];
+
+    if (!query) {
+      allItems.forEach(el => el.style.display = '');
+      return;
+    }
+
+    allItems.forEach(el => {
+      const text = el.textContent.toLowerCase();
+      if (text.includes(query)) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
+  searchBtn.addEventListener('click', filterContent);
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') filterContent();
+  });
+
+  // 频道高亮（简化版，滚动监听）
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.channel-list a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "老虎菜原创私房系列全套合集",
+  "description": "老虎菜原创私房系列全套合集汇聚该系列已公开的原创菜品、制作手记与更新动态。",
+  "url": ""
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "虎皮凤爪的虎皮起皱率怎么提高？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "起皱率主要看油炸温度。185℃下锅炸4—5分钟，表皮起泡后立即投入≤4℃冰水浸泡20分钟，起皱率能到90%以上。油温低于170℃起皱率会掉到55%左右。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "老式东北大酱发酵多少天可以吃？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "配方标准是45天。但盐度会影响时间：盐度12%时45天风味稳定；盐度降到10%时第38天可能出现酸味，需要继续发酵到第45天酸味才会减弱。发酵期间每天翻缸一次。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "私房麻酱拉皮的麻酱怎么调不澥？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "芝麻酱和花生酱按3:1混合，分三次加入蒜水，每次顺时针搅打至完全吸收再加下一次。总水量约为酱料重量的40%。加少许盐和糖能稳定乳化，澥开的麻酱可以冷藏保存两天。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "腌黄瓜怎么保持脆度？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "两步盐渍法：先切条用4%盐杀水2小时，压3公斤重物挤出水分（500克黄瓜挤到268克左右），再泡入放凉的腌汁（生抽、香醋、冰糖、八角煮沸后冷却）。冷藏12小时即可，存放超过3天脆度会下降。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "蒜香辣椒酱的蒜末为什么要分两次下？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "第一次下锅用油温炸香蒜末，提供底味；第二次在关火后趁余温拌入生蒜末，保留蒜的辛辣和鲜香。全下锅炸会失去生蒜气息，全关火后下则香气不足。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "酱八宝的蔬菜可以替换吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。传统八宝用黄瓜、花生、黄豆、萝卜、辣椒、芹菜、豇豆、姜。投稿作品里有把黄瓜换成莴笋的版本，口感更脆但吸味慢，需要多腌12小时。替换蔬菜后盐度建议增加0.5%以平衡出水率。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+    </html>
